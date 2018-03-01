@@ -25,13 +25,14 @@ def find_closest_cars(cars,x,y):
 
 def find_closets_available_cars(cars,x,y,t0):
     best_cars = find_closest_cars(cars,x,y)
+    #print(best_cars)
     already_available = False
     best_best_cars = []
 
-    for i in range(1,len(best_cars)-1):
+    for i in range(0,len(best_cars)):
         c = best_cars[i]
 
-        if already_available:
+        if already_available==True:
             if c.compute_time()==-1:
                 best_best_cars.append(c)
 
@@ -41,7 +42,11 @@ def find_closets_available_cars(cars,x,y,t0):
                 best_best_cars.append(c)
             else:
                 ttd = c.compute_time()
-                if c.ttd < best_best_cars[0]:
+
+                if len(best_best_cars)==0:
+                    if ttd==-1:
+                        best_best_cars = [c]
+                elif ttd < best_best_cars[0].compute_time():
                     best_best_cars = [c]
                 elif ttd == best_best_cars[0]:
                     best_best_cars.append(c)

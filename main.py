@@ -7,7 +7,7 @@ R,C,F,N,B,T,rides = read_input()
 cars = {}
 
 #creation cars
-for i in range(0,F-1):
+for i in range(0,F):
     car = Car(0,0,0,0,i)
     cars[i] = car
 
