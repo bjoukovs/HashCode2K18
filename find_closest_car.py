@@ -23,10 +23,10 @@ def find_closest_cars(cars,x,y):
         
     return best_cars
 
-def find_closets_available_cars(cars,x,y,current_t,t0):
+def find_closets_available_cars(cars,x,y,t0):
     best_cars = find_closest_cars(cars,x,y)
     already_available = False
-    best_best_cars = [best_cars[0]]
+    best_best_cars = []
 
     for i in range(1,len(best_cars)-1):
         c = best_cars[i]
