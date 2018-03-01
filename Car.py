@@ -10,8 +10,8 @@ class Car:
         self.rides = []
 
     def moveto_x(self):
-        elapsed_time = elapsed_time + abs(self.xdest - self.xpos)
-        elapsed_time = elapsed_time + abs(self.ydest - self.ypos)
+        elapsed_time = abs(self.xdest - self.xpos)
+        elapsed_time += abs(self.ydest - self.ypos)
         self.xpos = self.xdest
         self.ypos = self.ydest
         return elapsed_time
