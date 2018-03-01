@@ -24,14 +24,14 @@ while time <= T:
             y = ride.start_inter_col
             t0 = earliest_start
             av_cars = find_closets_available_cars_by_dest(cars, x, y, t0)
+            found = False
             for car in av_cars:
-                if car.time_distance(ride) <= earliest_start + ride.distance():
+                if not found and car.time_distance(ride) <= earliest_start + ride.distance():
                     car.add_ride(ride)
+                    found = True
+            if found or ride.latest_finish <= time:
                 rides[earliest_start].remove(ride)     
-    
+
     for key, car in cars.items():
         car.move()
-        print(car, car.rides)
     time += 1
-
-output(cars)
