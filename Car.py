@@ -1,10 +1,10 @@
 class Car:
 
-    def __init__(self, xpos,ypos,xdest,ydest,nb,current_ride_index): #nb=number of the car
-        self.xpos = pos
-        self.ypos = pos
-        self.xdest=dest
-        self.ydest=dest
+    def __init__(self,xpos,ypos,xdest,ydest,nb,current_ride_index): #nb=number of the car
+        self.xpos = xpos
+        self.ypos = ypos
+        self.xdest=xdest
+        self.ydest=ydest
         self.nb=nb
         self.current_ride_index=current_ride_index #indice de la course en cours
         self.rides=[]
