@@ -20,7 +20,7 @@ class Car:
         self.rides.append(self.id)
 
     def compute_time(self):
-        if ride_id=-1:
+        if self.ride_id==-1:
             expected_time=-1
         else:
             expected_time = abs(self.xdest - self.xpos)
