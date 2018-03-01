@@ -21,7 +21,7 @@ class Car:
         self.available = False
 
     def compute_time(self):
-        if not self.available:
+        if self.available:
             expected_time=-1
         else:
             expected_time = abs(self.xdest - self.xpos)
