@@ -2,6 +2,7 @@ from read import read_input
 from Car import Car
 from find_closest_car import find_closets_available_cars_by_dest, find_closets_available_cars 
 from functions import sort_rides
+from output import output
 
 R,C,F,N,B,T,rides = read_input()
 cars = {}
@@ -26,9 +27,11 @@ while time <= T:
             for car in av_cars:
                 if car.time_distance(ride) <= earliest_start + ride.distance():
                     car.add_ride(ride)
-            rides[earliest_start].remove(ride)     
+                rides[earliest_start].remove(ride)     
     
     for key, car in cars.items():
         car.move()
         print(car, car.rides)
     time += 1
+
+output(cars)
