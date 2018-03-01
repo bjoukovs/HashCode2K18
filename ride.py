@@ -10,5 +10,6 @@ class Ride:
         self.id = _id
 
     def distance(self):
-        return abs(self.start_inter_col - self.end_inter_col) + \ 
-                abs(self.start_inter_row - self.end_inter_row)
+        distance_col = abs(self.start_inter_col - self.end_inter_col) 
+        distance_row = abs(self.start_inter_row - self.end_inter_row)
+        return distance_col + distance_row
