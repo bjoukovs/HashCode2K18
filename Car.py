@@ -19,10 +19,18 @@ class Car:
     def add_ride(self):
         self.rides.append(self.id)
 
+    def compute_time(self):
+        if ride_id=-1:
+            expected_time=-1
+        else:
+            expected_time = abs(self.xdest - self.xpos)
+            expected_time += abs(self.ydest - self.ypos)
+        return expected_time
+
 
     def __repr__(self):
-        return "Car id {} at ({}, {}) going to ({}, {})".format(self.car_id, 
-                                                                self.xpos, 
-                                                                self.ypos, 
-                                                                self.xdest, 
+        return "Car id {} at ({}, {}) going to ({}, {})".format(self.car_id,
+                                                                self.xpos,
+                                                                self.ypos,
+                                                                self.xdest,
                                                                 self.ydest)
