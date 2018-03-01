@@ -13,3 +13,10 @@ class Ride:
         distance_col = abs(self.start_inter_col - self.end_inter_col) 
         distance_row = abs(self.start_inter_row - self.end_inter_row)
         return distance_col + distance_row
+
+
+    def __str__(self):
+        return "Ride {} from ({},{}) to ({}, {})".format(self.id, self.start_inter_row, 
+                                                        self.start_inter_col, 
+                                                        self.end_inter_row, 
+                                                        self.end_inter_col)

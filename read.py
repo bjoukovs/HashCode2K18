@@ -2,7 +2,7 @@ from ride import Ride
 
 def read_input():
 
-    input = open("input/b_should_be_easy.in", "r")
+    input = open("data/b_should_be_easy.in", "r")
     content = input.readlines()
     input.close()
 
@@ -33,7 +33,6 @@ def read_input():
 
         ride = Ride(x0,y0,x1,y1,es,lf,num)
         rides[num] = ride
-
     return(R,C,F,N,B,T,rides)
 
 read_input()
