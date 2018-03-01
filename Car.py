@@ -1,8 +1,8 @@
 class Car:
 
     def __init__(self, xpos,ypos,xdest,ydest,nb,current_ride_index): #nb=number of the car
-        self.xpos=pos
-        self.ypos=pos
+        self.xpos = pos
+        self.ypos = pos
         self.xdest=dest
         self.ydest=dest
         self.nb=nb
