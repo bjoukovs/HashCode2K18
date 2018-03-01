@@ -2,7 +2,7 @@ from ride import Ride
 
 def read_input():
 
-    input = open("data/b_should_be_easy.in", "r")
+    input = open("data/a_example.in", "r")
     content = input.readlines()
     input.close()
 
@@ -18,7 +18,7 @@ def read_input():
     rides = {}
 
     #read lines
-    for i in range(1,len(content)-1):
+    for i in range(1,len(content)):
         line = content[i].strip().split(" ")
         num = i-1
         x0 = int(line[0])

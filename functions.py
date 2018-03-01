@@ -1,14 +1,15 @@
 def sort_rides(rides_ls):
-    """sorted_ls=[] #liste finale
-    sublist=[]
-    ref_time=0
-    for i in range len(rides_ls):
-        start=rides_ls[i].earliest_start
-        if start<=ref_time:
-            sublist.append(rides_ls[i])
+    # Sort rides with the earliest start first
+    rides = {}
+    # Start time => rides
+    for ride in rides_ls.values():
+        earliest_start = ride.earliest_start
+        if rides.get(earliest_start):
+            rides[earliest_start].append(ride)
+        else:
+            rides[earliest_start] = [ride]
 
-    for j in range len(sublist)
-    """
-
-    rides_ls = sorted(rides_ls.values(), key=lambda ride: ride.earliest_start)
-    return rides_ls
+    for earliest_start in rides:
+        rides[earliest_start] = sorted(rides[earliest_start], 
+                                        key=lambda ride: ride.points())
+    return rides

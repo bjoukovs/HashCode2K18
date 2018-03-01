@@ -18,8 +18,6 @@ class Ride:
         #TODO: add bonus
         return self.distance() 
 
-
-
     def __repr__(self):
         return "Ride {} from ({},{}) to ({}, {})".format(self.id, 
                                                         self.start_inter_row, 
