@@ -14,6 +14,11 @@ class Ride:
         distance_row = abs(self.start_inter_row - self.end_inter_row)
         return distance_col + distance_row
 
+    def points(self):
+        #TODO: add bonus
+        return self.distance() 
+
+
 
     def __repr__(self):
         return "Ride {} from ({},{}) to ({}, {})".format(self.id, 
