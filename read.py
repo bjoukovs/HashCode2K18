@@ -8,15 +8,12 @@ def read_input():
 
     #first line
     elems = content[0].strip().split(" ")
-    #print(elems)
     R = int(elems[0])
     C = int(elems[1])
     F = int(elems[2])
     N = int(elems[3])
     B = int(elems[4])
     T = int(elems[5])
-
-    print(R,C,F,N,B,T)
 
     rides = {}
 
@@ -33,6 +30,4 @@ def read_input():
 
         ride = Ride(x0,y0,x1,y1,es,lf,num)
         rides[num] = ride
-    return(R,C,F,N,B,T,rides)
-
-read_input()
+    return R,C,F,N,B,T,rides
