@@ -1,10 +1,11 @@
 import datetime
+import os
 
-def output(cars):
+def output(cars, file):
     today = datetime.date.today()
-    input = open("output/out"+str(today)+".in", "w")
-    
-    for key,c in cars.items():
+    basename = os.path.basename(file)
+    input = open("output/" + file, "w")
+    for key, c in cars.items():
         line = ""
         r = c.rides
         if len(r)>0:
@@ -13,6 +14,5 @@ def output(cars):
                 line += " "+str(ride.id)
         line+="\n"
         input.write(line)
-
 
     input.close()

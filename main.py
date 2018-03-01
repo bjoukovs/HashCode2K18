@@ -4,34 +4,48 @@ from find_closest_car import find_closets_available_cars_by_dest, find_closets_a
 from functions import sort_rides
 from output import output
 
-R,C,F,N,B,T,rides = read_input()
-cars = {}
-
-#creation cars
-for i in range(0,F):
-    car = Car(0,0,0,0,i)
-    cars[i] = car
 
 
-rides = sort_rides(rides)
-moving_cars = []
+files = [
+    "data/a_example.in",
+    "data/b_should_be_easy.in",
+    "data/c_no_hurry.in",
+    "data/d_metropolis.in",
+    "data/e_high_bonus.in",
+]
 
-time = 0
-while time <= T:
-    for earliest_start, _rides in rides.items():
-        for ride in _rides:
-            x = ride.start_inter_row
-            y = ride.start_inter_col
-            t0 = earliest_start
-            av_cars = find_closets_available_cars_by_dest(cars, x, y, t0)
-            found = False
-            for car in av_cars:
-                if not found and car.time_distance(ride) <= earliest_start + ride.distance():
-                    car.add_ride(ride)
-                    found = True
-            if found or ride.latest_finish <= time:
-                rides[earliest_start].remove(ride)     
+for file in files:
+    R,C,F,N,B,T,rides = read_input(file)
+    cars = {}
 
-    for key, car in cars.items():
-        car.move()
-    time += 1
+    #creation cars
+    for i in range(0,F):
+        car = Car(0,0,0,0,i)
+        cars[i] = car
+
+
+    def sort_cars(_cars, ride):
+        good_cars = []
+        if isinstance(_cars, dict):
+            _cars = _cars.values()
+        for car in _cars:
+            if car.time_distance(ride) + ride.distance() <= ride.latest_finish:
+                good_cars.append(car)
+            
+        good_cars = sorted(good_cars, key=lambda car: car.time_distance(ride))
+        return good_cars
+
+
+    rides = sort_rides(rides)
+
+
+    for ride in rides:
+        x = ride.start_inter_row
+        y = ride.start_inter_col
+        _cars = sort_cars(cars, ride)
+        if _cars:
+            _cars[0].add_ride(ride)
+        rides.remove(ride)     
+
+    output(cars, file)
+

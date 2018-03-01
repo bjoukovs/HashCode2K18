@@ -1,8 +1,8 @@
 from ride import Ride
 
-def read_input():
+def read_input(file):
 
-    input = open("data/a_example.in", "r")
+    input = open(file, "r")
     content = input.readlines()
     input.close()
 
@@ -15,7 +15,7 @@ def read_input():
     B = int(elems[4])
     T = int(elems[5])
 
-    rides = {}
+    rides = []
 
     #read lines
     for i in range(1,len(content)):
@@ -28,6 +28,5 @@ def read_input():
         es = int(line[4])
         lf = int(line[5])
 
-        ride = Ride(x0,y0,x1,y1,es,lf,num)
-        rides[num] = ride
+        rides.append(Ride(x0,y0,x1,y1,es,lf,num))
     return R,C,F,N,B,T,rides
