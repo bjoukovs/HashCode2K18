@@ -1,3 +1,6 @@
+def dist(x0,y0,x1,y1):
+    return abs(x1-x0)+abs(y1-y0)
+
 def find_closest_cars(cars,x,y):
     min_dist = -1
     best_cars = []
@@ -20,3 +23,27 @@ def find_closest_cars(cars,x,y):
         
     return best_cars
 
+def find_closets_available_cars(cars,x,y,current_t,t0):
+    best_cars = find_closest_cars(cars,x,y)
+    already_available = False
+    best_best_cars = [best_cars[0]]
+
+    for i in range(1,len(best_cars)-1):
+        c = best_cars[i]
+
+        if already_available:
+            if c.compute_time()==-1:
+                best_best_cars.append(c)
+
+        else:
+            if c.compute_time() == -1:
+                already_available = True
+                best_best_cars.append(c)
+            else:
+                ttd = c.compute_time()
+                if c.ttd < best_best_cars[0]:
+                    best_best_cars = [c]
+                elif ttd == best_best_cars[0]:
+                    best_best_cars.append(c)
+    
+    return best_best_cars
