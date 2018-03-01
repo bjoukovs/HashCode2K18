@@ -12,16 +12,22 @@ for i in range(0,F-1):
     cars[i] = car
 
 
-temps = 0
 rides = sort_rides(rides)
-for earliest_start, _rides in rides.items():
-    for ride in _rides:
-        x = ride.start_inter_row
-        y = ride.start_inter_col
-        t0 = earliest_start
-        av_cars = find_closets_available_cars(cars, x, y, t0)
-        if av_cars:
-            car = av_cars[0]
-            car.add_ride(ride)
-            print(car, ride)
+moving_cars = []
+temps = 0
 
+while True:
+    for earliest_start, _rides in rides.items():
+        for ride in _rides:
+            x = ride.start_inter_row
+            y = ride.start_inter_col
+            t0 = earliest_start
+            av_cars = find_closets_available_cars(cars, x, y, t0)
+            if av_cars:
+                car = av_cars[0]
+                car.add_ride(ride)
+            else:
+                # TODO: check cars...
+                
+
+    temps += 1
