@@ -1,6 +1,6 @@
 from read import read_input
 from Car import Car
-from find_closest_car import find_closets_available_cars
+from find_closest_car import find_closets_available_cars_by_dest, find_closets_available_cars 
 from functions import sort_rides
 
 R,C,F,N,B,T,rides = read_input()
@@ -20,7 +20,7 @@ for earliest_start, _rides in rides.items():
         y = ride.start_inter_col
         t0 = earliest_start
         #print(x,y,t0)
-        av_cars = find_closets_available_cars(cars, x, y, t0)
+        av_cars = find_closets_available_cars_by_dest(cars, x, y, t0)
         if av_cars:
             car = av_cars[0]
             car.add_ride(ride)
